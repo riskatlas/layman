@@ -1,0 +1,27 @@
+# configuration template
+# see also layman/defaults.cfg
+# make a copy and edit your own layman.cfg (not git-pushed)
+[Authorization]
+service=Liferay
+url=http://erra.ccss.cz/g4i-portlet/service/sso/validate/
+allroles=http://erra.ccss.cz/g4i-portlet/service/list/roles/en
+
+[FileMan]
+homedir=/var/www/wwwlibs/layman/
+
+[DbMan]
+dbname=erra
+dbuser=erra
+dbhost=erra.ccss.cz
+dbpass=erra135 
+dbport=5432
+exposepk=true
+
+[GeoServer]
+url=http://erra.ccss.cz:8080/geoserver/rest
+user=admin
+password=geoserver
+gsdir=/data/geoserver/
+datadir=/data/geoserver/data_dir/
+userpwd=crypt1:2DFyNWnqJIfUL0j8bGMUeA==
+#workspace=

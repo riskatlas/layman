@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/wwwlibs/ext/ext4/resources/css/ext-sandbox-debug.css" />
+        <script type="text/javascript" src="/wwwlibs/ext/ext4/builds/ext-all-sandbox-debug-w-comments.js"></script>
+        <script type="text/javascript" src="/wwwlibs/hslayers/build/OpenLayers-debug.js"></script>
+        <script type="text/javascript" src="/wwwlibs/proj4js/proj4js.js"></script>
+        <script type="text/javascript" src="../lib/HSRS.js"></script>
+        <link rel="stylesheet" type="text/css" href="../lib/layman.css" />
+        <title>Data man application</title>
+        <script type="text/javascript">
+            Ext4.Loader.setConfig({
+                enabled: true,
+                paths: {"HSRS":'../lib/'}
+            });
+
+            Ext4.require([ "Ext.tree.*", 'HSRS.*' ]);
+
+            var lm;
+
+            HSRS.IMAGE_LOCATION = "../lib/imgs/";
+            HSRS.ProxyHost = "/cgi-bin/hsproxy.cgi?url=";
+            HSRS.STYLERURL = "/styler/?wms=http://localhost:8080/geoserver/{workspace}/ows/{workspace}&wmslayer={layerData.name}";
+            HSRS.VIEWURL = "/wwwlibs/hslayers/examples/MapPortal.html?wms=http://localhost:8080/geoserver/{workspace}/ows/{workspace}&wmslayers={layerData.name}";
+
+            Ext4.onReady(function() {
+                lm = Ext4.create("HSRS.LayerManager",{
+                    url: "/cgi-bin/layman/layman/",
+                    height: "100%",
+                    renderTo: "data"
+                });
+
+            });
+            //window.addEventListener("load",init,false)  // zavolá funkci "init" po
+        </script>
+    </head>
+    <style type="text/css">
+        #data {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+    <body>
+    <h1>Dataman app</h1>
+    <div id="data"></div>
+    </body>
+</html>
